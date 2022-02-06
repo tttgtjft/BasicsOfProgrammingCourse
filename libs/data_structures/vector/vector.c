@@ -1,5 +1,4 @@
 #include "vector.h"
-#include <stdbool.h>
 #include <malloc.h>
 
 void check_memory(const int *data){
@@ -43,8 +42,12 @@ void shrinkToFit(vector *v){
 }
 
 void deleteVector(vector *v){
-    reserve(v, 0);
+    free(v);
 }
+
+
+
+
 
 
 

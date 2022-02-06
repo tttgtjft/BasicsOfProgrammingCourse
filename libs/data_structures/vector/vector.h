@@ -1,3 +1,4 @@
+#include <stdbool.h>
 #include <stdlib.h>
 #include <stdio.h>
 
@@ -19,5 +20,7 @@ void clear(vector *v);
 void shrinkToFit(vector *v);
 
 void deleteVector(vector *v);
+
+
 
 #endif
