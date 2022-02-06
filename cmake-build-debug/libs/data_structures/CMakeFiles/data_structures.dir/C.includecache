@@ -1,0 +1,22 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/ASUS TUF GAMING/CLionProjects/LB5b/libs/data_structures/vector/vector.c
+vector.h
+C:/Users/ASUS TUF GAMING/CLionProjects/LB5b/libs/data_structures/vector/vector.h
+stdbool.h
+-
+malloc.h
+-
+
+C:/Users/ASUS TUF GAMING/CLionProjects/LB5b/libs/data_structures/vector/vector.h
+stdlib.h
+-
+stdio.h
+-
+

@@ -87,6 +87,7 @@ LB5b_EXTERNAL_OBJECTS =
 
 LB5b.exe: CMakeFiles/LB5b.dir/main.c.obj
 LB5b.exe: CMakeFiles/LB5b.dir/build.make
+LB5b.exe: libs/data_structures/libdata_structures.a
 LB5b.exe: CMakeFiles/LB5b.dir/linklibs.rsp
 LB5b.exe: CMakeFiles/LB5b.dir/objects1.rsp
 LB5b.exe: CMakeFiles/LB5b.dir/link.txt
