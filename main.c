@@ -1,14 +1,20 @@
-#include <stdio.h>
 #include <assert.h>
-#include <stdint.h>
 #include "libs/data_structures/vector/vector.h"
 
 void test_createVector();
 void test_reserve();
+void test_pushBack();
+void test_popBack();
 
-int main() {
+void test(){
     test_createVector();
     test_reserve();
+    test_pushBack();
+    test_popBack();
+}
+
+int main() {
+    test();
 
     return 0;
 }
@@ -53,4 +59,57 @@ void test_reserve_newCapacityLessSize(){
 void test_reserve(){
     test_reserve_newCapacityEqualsZero();
     test_reserve_newCapacityLessSize();
+}
+
+void test_pushBack_emptyVector(){
+    vector v = createVector(0);
+
+    pushBack(&v, 4);
+
+    assert(v.data[0] == 4);
+    assert(v.size == 1);
+    assert(v.capacity == 1);
+}
+
+void test_pushBack_fullVector(){
+    vector v = createVector(2);
+    v.size = 2;
+
+    pushBack(&v, 6);
+
+    assert(v.data[2] == 6);
+    assert(v.size == 3);
+    assert(v.capacity == 4);
+}
+
+void test_pushBack_notFullVector(){
+    vector v = createVector(4);
+    v.size = 2;
+
+    pushBack(&v, 5);
+
+    assert(v.data[2] == 5);
+    assert(v.size == 3);
+    assert(v.capacity == 4);
+}
+
+void test_pushBack(){
+    test_pushBack_emptyVector();
+    test_pushBack_fullVector();
+    test_pushBack_notFullVector();
+}
+
+void test_popBack_notEmptyVector(){
+    vector v = createVector(0);
+    pushBack(&v, 10);
+
+    assert(v.size == 1);
+
+    popBack(&v);
+    assert(v.size == 0);
+    assert(v.capacity == 0);
+}
+
+void test_popBack(){
+    test_popBack_notEmptyVector();
 }

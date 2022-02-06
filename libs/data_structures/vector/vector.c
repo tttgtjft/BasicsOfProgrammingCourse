@@ -1,5 +1,4 @@
 #include "vector.h"
-#include <malloc.h>
 
 void check_memory(const int *data){
     if (data == NULL){
@@ -42,9 +41,42 @@ void shrinkToFit(vector *v){
 }
 
 void deleteVector(vector *v){
-    free(v);
+    reserve(v, 0);
 }
 
+bool isEmpty(const vector v){
+    return v.size == 0;
+}
+
+bool isFull(const vector v){
+    return v.size == v.capacity;
+}
+
+int getVectorValue(const vector v, const size_t i){
+    return v.data[i];
+}
+
+void pushBack(vector *v, const int x){
+    if (isEmpty(*v)){
+        reserve(v, v->capacity + 1);
+        v->data[v->size++] = x;
+    }
+    else if (isFull(*v)){
+        reserve(v, v->capacity * 2);
+        v->data[v->size++] = x;
+    }
+    else
+        v->data[v->size++] = x;
+}
+
+void popBack(vector *v){
+    if (isEmpty(*v)){
+        fprintf(stderr, "bad alloc");
+        exit(1);
+    }
+
+    reserve(v, v->capacity - 1);
+}
 
 
 
