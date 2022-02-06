@@ -5,12 +5,18 @@ void test_createVector();
 void test_reserve();
 void test_pushBack();
 void test_popBack();
+void test_atVector();
+void test_back();
+void test_front();
 
 void test(){
     test_createVector();
     test_reserve();
     test_pushBack();
     test_popBack();
+    test_atVector();
+    test_back();
+    test_front();
 }
 
 int main() {
@@ -112,4 +118,41 @@ void test_popBack_notEmptyVector(){
 
 void test_popBack(){
     test_popBack_notEmptyVector();
+}
+
+void test_atVector_notEmptyVector(){
+    vector v = {(int [3]){1, 3, 4}, 3, 5};
+
+    assert(*atVector(v, 1) == 3);
+}
+
+void test_atVector_requestToLastElement(){
+    vector v = {(int [3]){1, 3, 4}, 3, 5};
+
+    assert(*atVector(v, v.size - 1) == 4);
+}
+
+void test_atVector(){
+    test_atVector_notEmptyVector();
+    test_atVector_requestToLastElement();
+}
+
+void test_back_oneElementInVector(){
+    vector v = {(int [1]){5}, 1, 1};
+
+    assert(*back(v) == 5);
+}
+
+void test_back(){
+    test_back_oneElementInVector();
+}
+
+void test_front_oneElementInVector(){
+    vector v = {(int [1]){5}, 1, 1};
+
+    assert(*front(v) == 5);
+}
+
+void test_front(){
+    test_front_oneElementInVector();
 }

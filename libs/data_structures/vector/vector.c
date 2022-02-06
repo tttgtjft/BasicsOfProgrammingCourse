@@ -56,8 +56,12 @@ int getVectorValue(const vector v, const size_t i){
     return v.data[i];
 }
 
+bool isZeroVector(vector v){
+    return v.capacity == 0;
+}
+
 void pushBack(vector *v, const int x){
-    if (isEmpty(*v)){
+    if (isZeroVector(*v)){
         reserve(v, v->capacity + 1);
         v->data[v->size++] = x;
     }
@@ -76,6 +80,23 @@ void popBack(vector *v){
     }
 
     reserve(v, v->capacity - 1);
+}
+
+int* atVector(const vector v, const size_t index){
+    if (index > v.size){
+        fprintf(stderr, "IndexError: a[%zu] is not exists", index);
+        exit(1);
+    }
+
+    return &v.data[index];
+}
+
+int* back(vector v){
+    return &v.data[v.size - 1];
+}
+
+int* front(vector v){
+    return &v.data[0];
 }
 
 
