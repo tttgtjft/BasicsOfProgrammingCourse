@@ -98,7 +98,7 @@ int* atVector(const vector v, const size_t index){
     return &v.data[index];
 }
 
-int* back(vector v){
+int* back(const vector v){
     if (isEmpty(v)){
         throwExceptionEmptyVector();
     }
@@ -106,7 +106,7 @@ int* back(vector v){
     return &v.data[v.size - 1];
 }
 
-int* front(vector v){
+int* front(const vector v){
     if (isEmpty(v)){
         throwExceptionEmptyVector();
     }
