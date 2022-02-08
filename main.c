@@ -182,7 +182,7 @@ void test_front(){
     test_front_oneElementInVector();
 }
 
-//--------------------------------VECTOR VOID------------------------------------------//
+//--------------------------------VECTOR VOID-----------------------------------------//
 
 /*void test_createVectorV_SIZE_MAX(){
     vectorVoid v = createVectorV(SIZE_MAX, 4); `exit code 1 ~ "bad alloc"`
