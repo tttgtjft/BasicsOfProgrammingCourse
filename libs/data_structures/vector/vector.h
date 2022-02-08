@@ -1,11 +1,10 @@
-#include <windows.h>
+#ifndef LB5B_VECTOR_H
+#define LB5B_VECTOR_H
+
 #include <stdlib.h>
 #include <stdio.h>
 #include <malloc.h>
 #include <stdbool.h>
-
-#ifndef LB5B_VECTOR_H
-#define LB5B_VECTOR_H
 
 typedef struct vector {
     int *data;  // указатель на элементы вектора

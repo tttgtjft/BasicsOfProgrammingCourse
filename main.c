@@ -120,7 +120,7 @@ void test_popBack_notEmptyVector(){
 
     popBack(&v);
     assert(v.size == 0);
-    assert(v.capacity == 0);
+    assert(v.capacity == 1);
     deleteVector(&v);
 }
 
