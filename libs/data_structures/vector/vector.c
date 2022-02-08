@@ -4,8 +4,9 @@
 
 #define throwExceptionBadAlloc() fprintf(stderr, "bad alloc"); exit(EXIT_CODE)
 #define throwExceptionIndexError(...) fprintf(stderr, "IndexError: a[%zu] is not exists", index); exit(EXIT_CODE)
-#define throwExceptionZeroVector() fprintf(stderr, "IndexError: a[] is a zero vector"); exit(EXIT_CODE)
+#define throwExceptionEmptyVector() fprintf(stderr, "IndexError: a[] is a zero vector"); exit(EXIT_CODE)
 
+// Выводит сообщение об ошибке, если ОП не может предоставить нужный объем памяти под размещение динамического массива
 void check_memory(const int *data){
     if (data == NULL){
         throwExceptionBadAlloc();
@@ -63,6 +64,7 @@ int getVectorValue(const vector v, const size_t i){
     return v.data[i];
 }
 
+// Возвращает "истину", если вектор - нулевой, иначе - "ложь"
 bool isZeroVector(vector v){
     return v.capacity == 0;
 }
@@ -86,7 +88,7 @@ void popBack(vector *v){
         exit(1);
     }
 
-    reserve(v, v->size - 1);
+    v->size--;
 }
 
 int* atVector(const vector v, const size_t index){
@@ -98,16 +100,16 @@ int* atVector(const vector v, const size_t index){
 }
 
 int* back(vector v){
-    if (isZeroVector(v)){
-        throwExceptionZeroVector();
+    if (isEmpty(v)){
+        throwExceptionEmptyVector();
     }
 
     return &v.data[v.size - 1];
 }
 
 int* front(vector v){
-    if (isZeroVector(v)){
-        throwExceptionZeroVector();
+    if (isEmpty(v)){
+        throwExceptionEmptyVector();
     }
 
     return &v.data[0];
