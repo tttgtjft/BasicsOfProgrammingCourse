@@ -3,4 +3,5 @@
 
 CMakeFiles/LB5b.dir/main.c.obj: \
  ../libs/data_structures/vector/vector.h \
+ ../libs/data_structures/vector_void/vector_void.h \
  ../main.c

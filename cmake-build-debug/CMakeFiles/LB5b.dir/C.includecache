@@ -16,9 +16,21 @@ malloc.h
 stdbool.h
 -
 
+C:/Users/ASUS TUF GAMING/CLionProjects/LB5b/libs/data_structures/vector_void/vector_void.h
+stdlib.h
+-
+stdio.h
+-
+malloc.h
+-
+stdbool.h
+-
+
 C:/Users/ASUS TUF GAMING/CLionProjects/LB5b/main.c
 assert.h
 -
 libs/data_structures/vector/vector.h
 C:/Users/ASUS TUF GAMING/CLionProjects/LB5b/libs/data_structures/vector/vector.h
+libs/data_structures/vector_void/vector_void.h
+C:/Users/ASUS TUF GAMING/CLionProjects/LB5b/libs/data_structures/vector_void/vector_void.h
 

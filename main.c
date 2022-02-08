@@ -10,6 +10,9 @@ void test_atVector();
 void test_back();
 void test_front();
 
+void test_createVectorV();
+void test_reserveV();
+
 void test(){
     test_createVector();
     test_reserve();
@@ -18,6 +21,9 @@ void test(){
     test_atVector();
     test_back();
     test_front();
+
+    test_createVectorV();
+    test_reserveV();
 }
 
 int main() {
@@ -167,3 +173,56 @@ void test_front_oneElementInVector(){
 void test_front(){
     test_front_oneElementInVector();
 }
+
+//--------------------------------VECTOR VOID------------------------------------------//
+
+/*void test_createVectorV_SIZE_MAX(){
+    vectorVoid v = createVectorV(SIZE_MAX, 4); exit code 1 ~ "bad alloc"
+}*/
+
+void test_createVectorV_capacityEqualsZero(){
+    size_t capacity = 0;
+    vectorVoid v = createVectorV(capacity, 4);
+
+    assert(v.data == NULL);
+    deleteVectorV(&v);
+}
+
+void test_createVectorV_memoryIsAllocated(){
+    size_t capacity = 100;
+    vectorVoid v = createVectorV(capacity, 4);
+
+    assert(v.data != NULL);
+    deleteVectorV(&v);
+}
+
+void test_createVectorV(){
+    test_createVectorV_capacityEqualsZero();
+    test_createVectorV_memoryIsAllocated();
+}
+
+void test_reserveV_newCapacityEqualsZero(){
+    vectorVoid v = createVectorV(10, 2);
+    size_t newCapacity = 0;
+    reserveV(&v, newCapacity);
+
+    assert(v.data == NULL);
+    deleteVectorV(&v);
+}
+
+void test_reserveV_newCapacityLessSize(){
+    vectorVoid v = createVectorV(10, 1);
+    v.size = 6;
+    size_t newCapacity = 4;
+
+    reserveV(&v, newCapacity);
+
+    assert(v.size == v.capacity);
+    deleteVectorV(&v);
+}
+
+void test_reserveV(){
+    test_reserveV_newCapacityEqualsZero();
+    test_reserveV_newCapacityLessSize();
+}
+

@@ -7,7 +7,7 @@
 #define throwExceptionEmptyVector() fprintf(stderr, "IndexError: a[] is an empty vector"); exit(EXIT_CODE)
 
 // Выводит сообщение об ошибке, если ОП не может предоставить нужный объем памяти под размещение динамического массива
-void check_memory(const int *data){
+void check_memoryVoid(const int *data){
     if (data == NULL){
         throwExceptionBadAlloc();
     }
@@ -19,7 +19,7 @@ vector createVector(const size_t n){
     if (n > 0){
         data = (int *) malloc(n * sizeof(int));
 
-        check_memory(data);
+        check_memoryVoid(data);
     }
 
     return (vector){data, 0, n};
@@ -32,7 +32,7 @@ void reserve(vector *v, const size_t newCapacity){
 
     if (v->capacity > 0){
         v->data = (int *) realloc(v->data, newCapacity * sizeof(int));
-        check_memory(v->data);
+        check_memoryVoid(v->data);
     }
     else
         v->data = NULL;
