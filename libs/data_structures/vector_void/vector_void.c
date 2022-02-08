@@ -53,3 +53,50 @@ void deleteVectorV(vectorVoid *v){
     v->baseTypeSize = 0;
 }
 
+bool isEmptyV(const vectorVoid v){
+    return v.size == 0;
+}
+
+bool isFullV(const vectorVoid v){
+    return v.size == v.capacity;
+}
+
+void getVectorValueV(const vectorVoid v, const size_t index, void *destination) {
+    if (index >= v.size) {
+        throwExceptionIndexError(index);
+    }
+
+    char *source = (char *) v.data + index * v.baseTypeSize;
+    memcpy(destination, source, v.baseTypeSize);
+}
+
+void setVectorValueV(vectorVoid *v, const size_t index, void *source) {
+    if (index >= v->capacity) {
+        throwExceptionIndexError(index);
+    }
+
+    char *destination = (char *) v->data + index * v->baseTypeSize;
+    memcpy(destination, source, v->baseTypeSize);
+}
+
+// Возвращает "истину", если вектор - нулевой, иначе - "ложь"
+bool isZeroVectorV(vectorVoid v){
+    return v.capacity == 0;
+}
+
+void pushBackV(vectorVoid *v, void *source){
+    if (isZeroVectorV(*v))
+        reserveV(v, v->capacity + 1);
+    else if (isFullV(*v))
+        reserveV(v, v->capacity * 2);
+
+    setVectorValueV(v, v->size++, source);
+}
+
+void popBackV(vectorVoid *v){
+    if (isEmptyV(*v)){
+        throwExceptionEmptyVector();
+    }
+
+    v->size--;
+}

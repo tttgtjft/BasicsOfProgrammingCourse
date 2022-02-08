@@ -3,6 +3,7 @@
 
 #include <stdlib.h>
 #include <stdio.h>
+#include <memory.h>
 #include <malloc.h>
 #include <stdbool.h>
 
@@ -29,21 +30,21 @@ void clearV(vectorVoid *v);
 void deleteVectorV(vectorVoid *v);
 
 // Возвращает True, если вектор v пустой, иначе - False
-bool isEmptyV(vectorVoid *v);
+bool isEmptyV(vectorVoid v);
 
 // Возвращает True, если вектор v полный, иначе - False
-bool isFullV(vectorVoid *v);
+bool isFullV(vectorVoid v);
 
 // Возвращает index-ый элемент вектора v
-void getVectorValueV(vectorVoid *v, size_t index, void *destination);
+void getVectorValueV(vectorVoid v, size_t index, void *destination);
 
 // Записывает в index-ый элемент вектора v значение source
 void setVectorValueV(vectorVoid *v, size_t index, void *source);
 
-// Удаляет последний элемент вектора v
-void popBackV(vectorVoid *v);
-
 // Добавляет в конец вектора v элемент по адресу source
 void pushBackV(vectorVoid *v, void *source);
+
+// Удаляет последний элемент вектора v
+void popBackV(vectorVoid *v);
 
 #endif

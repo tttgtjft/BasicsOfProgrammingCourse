@@ -2,6 +2,9 @@
 #include "libs/data_structures/vector/vector.h"
 #include "libs/data_structures/vector_void//vector_void.h"
 
+void test();
+
+//тесты vector
 void test_createVector();
 void test_reserve();
 void test_pushBack();
@@ -10,8 +13,18 @@ void test_atVector();
 void test_back();
 void test_front();
 
+//тесты vectorVoid
 void test_createVectorV();
 void test_reserveV();
+void test_pushBackV();
+
+int main() {
+    test();
+
+    return 0;
+}
+
+//-------------------------------------TEST----------------------------------------//
 
 void test(){
     test_createVector();
@@ -24,15 +37,10 @@ void test(){
 
     test_createVectorV();
     test_reserveV();
+    test_pushBackV();
 }
 
-int main() {
-    test();
-
-    vectorVoid v = {(int[]){1, 2, 3}, 3, 3, sizeof(int)};
-
-    return 0;
-}
+//--------------------------------VECTOR------------------------------------------//
 
 void test_createVector_capacityEqualsZero(){
     size_t capacity = 0;
@@ -177,7 +185,7 @@ void test_front(){
 //--------------------------------VECTOR VOID------------------------------------------//
 
 /*void test_createVectorV_SIZE_MAX(){
-    vectorVoid v = createVectorV(SIZE_MAX, 4); exit code 1 ~ "bad alloc"
+    vectorVoid v = createVectorV(SIZE_MAX, 4); `exit code 1 ~ "bad alloc"`
 }*/
 
 void test_createVectorV_capacityEqualsZero(){
@@ -226,3 +234,47 @@ void test_reserveV(){
     test_reserveV_newCapacityLessSize();
 }
 
+void test_pushBackV_Int(){
+    size_t n;
+    scanf("%zu", &n);
+
+    vectorVoid v = createVectorV(0, sizeof(int));
+    for (int i = 0; i < n; ++i) {
+        int x;
+        scanf("%d", &x);
+
+        pushBackV(&v, &x);
+    }
+
+    for (int i = 0; i < n; ++i) {
+        int x;
+        getVectorValueV(v, i, &x);
+
+        printf("%d ", x);
+    }
+}
+
+void test_pushBackV_Float(){
+    size_t n;
+    scanf("%zu", &n);
+
+    vectorVoid v = createVectorV(0, sizeof(float));
+    for (int i = 0; i < n; ++i) {
+        float x;
+        scanf("%f", &x);
+
+        pushBackV(&v, &x);
+    }
+
+    for (int i = 0; i < n; ++i) {
+        float x;
+        getVectorValueV(v, i, &x);
+
+        printf("%f ", x);
+    }
+}
+
+void test_pushBackV(){
+    test_pushBackV_Int();
+    test_pushBackV_Float();
+}

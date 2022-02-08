@@ -60,8 +60,12 @@ bool isFull(const vector v){
     return v.size == v.capacity;
 }
 
-int getVectorValue(const vector v, const size_t i){
-    return v.data[i];
+int getVectorValue(const vector v, const size_t index){
+    if (index >= v.size){
+        throwExceptionIndexError(index);
+    }
+
+    return v.data[index];
 }
 
 // Возвращает "истину", если вектор - нулевой, иначе - "ложь"

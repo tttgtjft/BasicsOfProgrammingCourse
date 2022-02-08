@@ -33,8 +33,8 @@ bool isEmpty(vector v);
 // Возвращает True, если вектор v полный, иначе - False
 bool isFull(vector v);
 
-// Возвращает значение элемента по индексу i в векторе v
-int getVectorValue(vector v, size_t i);
+// Возвращает значение элемента по индексу index в векторе v
+int getVectorValue(vector v, size_t index);
 
 // Добавляет в конец вектора v элемент x
 void pushBack(vector *v, int x);
