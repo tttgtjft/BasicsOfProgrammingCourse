@@ -30,6 +30,7 @@ void test_createVector_capacityEqualsZero(){
     vector v = createVector(capacity);
 
     assert(v.data == NULL);
+    deleteVector(&v);
 }
 
 void test_createVector_memoryIsAllocated(){
@@ -37,6 +38,7 @@ void test_createVector_memoryIsAllocated(){
     vector v = createVector(capacity);
 
     assert(v.data != NULL);
+    deleteVector(&v);
 }
 
 void test_createVector(){
@@ -50,6 +52,7 @@ void test_reserve_newCapacityEqualsZero(){
     reserve(&v, newCapacity);
 
     assert(v.data == NULL);
+    deleteVector(&v);
 }
 
 void test_reserve_newCapacityLessSize(){
@@ -60,6 +63,7 @@ void test_reserve_newCapacityLessSize(){
     reserve(&v, newCapacity);
 
     assert(v.size == v.capacity);
+    deleteVector(&v);
 }
 
 void test_reserve(){
@@ -75,6 +79,7 @@ void test_pushBack_emptyVector(){
     assert(v.data[0] == 4);
     assert(v.size == 1);
     assert(v.capacity == 1);
+    deleteVector(&v);
 }
 
 void test_pushBack_fullVector(){
@@ -86,6 +91,7 @@ void test_pushBack_fullVector(){
     assert(v.data[2] == 6);
     assert(v.size == 3);
     assert(v.capacity == 4);
+    deleteVector(&v);
 }
 
 void test_pushBack_notFullVector(){
@@ -97,6 +103,7 @@ void test_pushBack_notFullVector(){
     assert(v.data[2] == 5);
     assert(v.size == 3);
     assert(v.capacity == 4);
+    deleteVector(&v);
 }
 
 void test_pushBack(){
@@ -114,6 +121,7 @@ void test_popBack_notEmptyVector(){
     popBack(&v);
     assert(v.size == 0);
     assert(v.capacity == 0);
+    deleteVector(&v);
 }
 
 void test_popBack(){
@@ -121,13 +129,13 @@ void test_popBack(){
 }
 
 void test_atVector_notEmptyVector(){
-    vector v = {(int [3]){1, 3, 4}, 3, 5};
+    vector v = {(int []){1, 3, 4}, 3, 5};
 
     assert(*atVector(v, 1) == 3);
 }
 
 void test_atVector_requestToLastElement(){
-    vector v = {(int [3]){1, 3, 4}, 3, 5};
+    vector v = {(int []){1, 3, 4}, 3, 5};
 
     assert(*atVector(v, v.size - 1) == 4);
 }
@@ -138,7 +146,7 @@ void test_atVector(){
 }
 
 void test_back_oneElementInVector(){
-    vector v = {(int [1]){5}, 1, 1};
+    vector v = {(int []){5}, 1, 1};
 
     assert(*back(v) == 5);
 }
@@ -148,7 +156,7 @@ void test_back(){
 }
 
 void test_front_oneElementInVector(){
-    vector v = {(int [1]){5}, 1, 1};
+    vector v = {(int []){5}, 1, 1};
 
     assert(*front(v) == 5);
 }

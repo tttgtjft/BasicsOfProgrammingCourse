@@ -1,9 +1,14 @@
 #include "vector.h"
 
+#define EXIT_CODE 1
+
+#define throwExceptionBadAlloc() fprintf(stderr, "bad alloc"); exit(EXIT_CODE)
+#define throwExceptionIndexError(...) fprintf(stderr, "IndexError: a[%zu] is not exists", index); exit(EXIT_CODE)
+#define throwExceptionZeroVector() fprintf(stderr, "IndexError: a[] is a zero vector"); exit(EXIT_CODE)
+
 void check_memory(const int *data){
     if (data == NULL){
-        fprintf(stderr, "bad alloc");
-        exit(1);
+        throwExceptionBadAlloc();
     }
 }
 
@@ -41,7 +46,9 @@ void shrinkToFit(vector *v){
 }
 
 void deleteVector(vector *v){
-    reserve(v, 0);
+    free(v->data);
+    v->size = 0;
+    v->capacity = 0;
 }
 
 bool isEmpty(const vector v){
@@ -79,23 +86,30 @@ void popBack(vector *v){
         exit(1);
     }
 
-    reserve(v, v->capacity - 1);
+    reserve(v, v->size - 1);
 }
 
 int* atVector(const vector v, const size_t index){
-    if (index > v.size){
-        fprintf(stderr, "IndexError: a[%zu] is not exists", index);
-        exit(1);
+    if (index >= v.size){
+        throwExceptionIndexError(index);
     }
 
     return &v.data[index];
 }
 
 int* back(vector v){
+    if (isZeroVector(v)){
+        throwExceptionZeroVector();
+    }
+
     return &v.data[v.size - 1];
 }
 
 int* front(vector v){
+    if (isZeroVector(v)){
+        throwExceptionZeroVector();
+    }
+
     return &v.data[0];
 }
 
