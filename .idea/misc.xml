@@ -4,6 +4,7 @@
   <component name="CidrRootsConfiguration">
     <sourceRoots>
       <file path="$PROJECT_DIR$/libs/data_structures/vector" />
+      <file path="$PROJECT_DIR$/libs/data_structures/vector_void" />
     </sourceRoots>
   </component>
 </project>

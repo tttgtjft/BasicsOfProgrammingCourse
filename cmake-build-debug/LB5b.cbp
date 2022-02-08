@@ -116,6 +116,12 @@
 		<Unit filename="C:/Users/ASUS TUF GAMING/CLionProjects/LB5b/libs/data_structures/vector/vector.h">
 			<Option target="data_structures"/>
 		</Unit>
+		<Unit filename="C:/Users/ASUS TUF GAMING/CLionProjects/LB5b/libs/data_structures/vector_void/vector_void.c">
+			<Option target="data_structures"/>
+		</Unit>
+		<Unit filename="C:/Users/ASUS TUF GAMING/CLionProjects/LB5b/libs/data_structures/vector_void/vector_void.h">
+			<Option target="data_structures"/>
+		</Unit>
 		<Unit filename="C:/Users/ASUS TUF GAMING/CLionProjects/LB5b/main.c">
 			<Option target="LB5b"/>
 		</Unit>

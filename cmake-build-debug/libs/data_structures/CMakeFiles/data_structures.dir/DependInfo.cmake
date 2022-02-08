@@ -9,6 +9,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
   "C:/Users/ASUS TUF GAMING/CLionProjects/LB5b/libs/data_structures/vector/vector.c" "C:/Users/ASUS TUF GAMING/CLionProjects/LB5b/cmake-build-debug/libs/data_structures/CMakeFiles/data_structures.dir/vector/vector.c.obj"
+  "C:/Users/ASUS TUF GAMING/CLionProjects/LB5b/libs/data_structures/vector_void/vector_void.c" "C:/Users/ASUS TUF GAMING/CLionProjects/LB5b/cmake-build-debug/libs/data_structures/CMakeFiles/data_structures.dir/vector_void/vector_void.c.obj"
   )
 set(CMAKE_C_COMPILER_ID "GNU")
 

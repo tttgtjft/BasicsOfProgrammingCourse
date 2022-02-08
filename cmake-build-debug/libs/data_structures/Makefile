@@ -153,6 +153,30 @@ vector/vector.c.s:
 	cd /d C:\Users\ASUSTU~1\CLIONP~1\LB5b\CMAKE-~1 && $(MAKE) $(MAKESILENT) -f libs\data_structures\CMakeFiles\data_structures.dir\build.make libs/data_structures/CMakeFiles/data_structures.dir/vector/vector.c.s
 .PHONY : vector/vector.c.s
 
+vector_void/vector_void.obj: vector_void/vector_void.c.obj
+.PHONY : vector_void/vector_void.obj
+
+# target to build an object file
+vector_void/vector_void.c.obj:
+	cd /d C:\Users\ASUSTU~1\CLIONP~1\LB5b\CMAKE-~1 && $(MAKE) $(MAKESILENT) -f libs\data_structures\CMakeFiles\data_structures.dir\build.make libs/data_structures/CMakeFiles/data_structures.dir/vector_void/vector_void.c.obj
+.PHONY : vector_void/vector_void.c.obj
+
+vector_void/vector_void.i: vector_void/vector_void.c.i
+.PHONY : vector_void/vector_void.i
+
+# target to preprocess a source file
+vector_void/vector_void.c.i:
+	cd /d C:\Users\ASUSTU~1\CLIONP~1\LB5b\CMAKE-~1 && $(MAKE) $(MAKESILENT) -f libs\data_structures\CMakeFiles\data_structures.dir\build.make libs/data_structures/CMakeFiles/data_structures.dir/vector_void/vector_void.c.i
+.PHONY : vector_void/vector_void.c.i
+
+vector_void/vector_void.s: vector_void/vector_void.c.s
+.PHONY : vector_void/vector_void.s
+
+# target to generate assembly for a file
+vector_void/vector_void.c.s:
+	cd /d C:\Users\ASUSTU~1\CLIONP~1\LB5b\CMAKE-~1 && $(MAKE) $(MAKESILENT) -f libs\data_structures\CMakeFiles\data_structures.dir\build.make libs/data_structures/CMakeFiles/data_structures.dir/vector_void/vector_void.c.s
+.PHONY : vector_void/vector_void.c.s
+
 # Help Target
 help:
 	@echo The following are some of the valid targets for this Makefile:
@@ -165,6 +189,9 @@ help:
 	@echo ... vector/vector.obj
 	@echo ... vector/vector.i
 	@echo ... vector/vector.s
+	@echo ... vector_void/vector_void.obj
+	@echo ... vector_void/vector_void.i
+	@echo ... vector_void/vector_void.s
 .PHONY : help
 
 

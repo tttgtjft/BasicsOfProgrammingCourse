@@ -1,5 +1,6 @@
 #include <assert.h>
 #include "libs/data_structures/vector/vector.h"
+#include "libs/data_structures/vector_void//vector_void.h"
 
 void test_createVector();
 void test_reserve();
@@ -21,6 +22,8 @@ void test(){
 
 int main() {
     test();
+
+    vectorVoid v = {(int[]){1, 2, 3}, 3, 3, sizeof(int)};
 
     return 0;
 }
