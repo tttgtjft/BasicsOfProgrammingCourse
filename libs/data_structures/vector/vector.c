@@ -4,7 +4,7 @@
 
 #define throwExceptionBadAlloc() fprintf(stderr, "bad alloc"); exit(EXIT_CODE)
 #define throwExceptionIndexError(...) fprintf(stderr, "IndexError: a[%zu] is not exists", index); exit(EXIT_CODE)
-#define throwExceptionEmptyVector() fprintf(stderr, "IndexError: a[] is a zero vector"); exit(EXIT_CODE)
+#define throwExceptionEmptyVector() fprintf(stderr, "IndexError: a[] is an empty vector"); exit(EXIT_CODE)
 
 // Выводит сообщение об ошибке, если ОП не может предоставить нужный объем памяти под размещение динамического массива
 void check_memory(const int *data){
@@ -84,8 +84,7 @@ void pushBack(vector *v, const int x){
 
 void popBack(vector *v){
     if (isEmpty(*v)){
-        fprintf(stderr, "bad alloc");
-        exit(1);
+        throwExceptionEmptyVector();
     }
 
     v->size--;
